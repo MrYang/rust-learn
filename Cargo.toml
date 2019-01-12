@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "ruststart",
+    "rustcarte",
+]
