@@ -7,9 +7,8 @@ use std::{io, thread};
 use std::time::Duration;
 
 mod guess;
-mod types;
+mod basic;
 mod convert;
-mod matching;
 mod closures;
 
 mod scoping;
@@ -20,10 +19,8 @@ use rustcarte;
 
 fn main() {
     //guess::g();
-    println!("const pi:{}", types::CONST_PI);
-    types::t();
+    basic::pub_method();
     convert::c();
-    matching::m();
     scoping::s();
     stdlib::s();
 

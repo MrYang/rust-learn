@@ -2,20 +2,32 @@ pub const CONST_PI: f64 = 3.1415;
 
 const S: &str = "pri s";
 
-pub fn t() {
-    let mut a = 6;
+pub fn basic_types() {
+    let mut i = 6;
     let emoji = '😻';
-    println!("a:{}", a);
+    let b = false;
+    println!("i:{}, b:{}", i, b);
 
-    a = 7;
+    i = 7;
+    println!("a:{}, S:{}, emoji:{}", i, S, emoji);
+}
+
+pub fn tuple_types() {
     let t = (500, 5.43, "abc", 98_222, 0xfff);
-    println!("a:{}, S:{}, emoji:{}, tuple:{:?}, i32:{}, f64:{}, str:{}", a, S, emoji, t, t.0, t.1, t.2);
+    println!(
+        "S:{}, tuple:{:?}, i32:{}, f64:{}, str:{}",
+        S, t, t.0, t.1, t.2
+    );
+}
 
+pub fn array_types() {
     let a = [1, 2, 3];
     let a_2 = [1; 5];
     let a_3: [i32; 5] = [1, 2, 3, 4, 5];
     println!("a:{:?}, a_2:{:?}, a_3:{:?}", a, a_2, a_3);
+}
 
+pub fn str_types() {
     let s = "abcdefghijklimn";
     let s_2 = String::from("1234567890");
     let sli_1 = &s[0..5];
@@ -23,7 +35,56 @@ pub fn t() {
     let sli_3 = &s_2[..=6];
 
     println!("sli_1:{}, sli_2:{}, sli_3:{}", sli_1, sli_2, sli_3);
+}
 
+pub fn enum_types() {
+    let home = IpAddr {
+        kind: IpAddrKind::V4(127, 0, 0, 1),
+        addr: String::from("127.0.0.1"),
+    };
+
+    let lookback = IpAddr {
+        kind: IpAddrKind::V6(String::from("::1")),
+        addr: String::from("::1"),
+    };
+
+    println!(
+        "home:{:#?}, lookback:{:#?}, p:{}",
+        home,
+        lookback,
+        home.kind.p()
+    );
+
+    let v = match home.kind {
+        IpAddrKind::V4(127, 0, 0, 2) => 4,
+        _ => {
+            println!("default");
+            0
+        }
+    };
+
+    println!("v:{}", v);
+}
+
+#[derive(Debug)]
+struct IpAddr {
+    kind: IpAddrKind,
+    addr: String,
+}
+
+#[derive(Debug)]
+enum IpAddrKind {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+impl IpAddrKind {
+    fn p(&self) -> String {
+        format!("p fn")
+    }
+}
+
+pub fn struct_types() {
     let user = User {
         username: String::from("username"),
         email: String::from("email"),
@@ -49,8 +110,8 @@ pub fn t() {
     println!("user1:{:?}, user2:{:?}, user3:{:#?}", user1, user2, user3);
 
     let rect = Rectangle {
-        width:30,
-        height:30,
+        width: 30,
+        height: 30,
     };
     let area = area(&rect);
     println!("area:{}, {}", area, rect.area());
