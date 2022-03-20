@@ -56,7 +56,7 @@ fn return_summary() -> impl Summary {
     }
 }
 
-pub fn t() {
+pub fn traits() {
     let mut a = Article {
         headline: String::from("headline"),
         location: String::from("location"),

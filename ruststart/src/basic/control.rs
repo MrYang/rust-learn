@@ -13,7 +13,29 @@ pub fn if_control() {
     println!("n:{}", n);
 }
 
+pub fn loop_control() {
+    for i in 1..=5 {
+        if i == 2 {
+            continue;
+        }
+        println!("{}", i)
+    }
 
-pub fn for_control() {
-    
+    let a = [1, 2, 3, 4];
+    for (i, v) in a.iter().enumerate() {
+        println!("idx:{}, v:{}", i, v);
+    }
+
+    let mut n = 0;
+    while n < 5 {
+        println!("{}", n);
+        n = n + 1;
+    }
+
+    loop {
+        println!("{}", n);
+        if n > 10 {
+            break;
+        }
+    }
 }

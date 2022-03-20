@@ -125,6 +125,13 @@ struct User {
     active: bool,
 }
 
+use std::fmt;
+impl fmt::Display for User {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "username:{}, email:{}, active:{}", self.username, self.email, self.active)
+    }
+}
+
 fn build_user(username: String, email: String) -> User {
     User {
         username,
@@ -145,7 +152,20 @@ fn area(rect: &Rectangle) -> u32 {
 }
 
 impl Rectangle {
+    // 方法
     fn area(&self) -> u32 {
         self.width * self.height
     }
+}
+
+type By = u16;
+
+pub fn convert() {
+    let d = 68.4;
+    let i = d as u32;
+    let h = i as By;
+    let u = i as u8;
+    let c = u as char;
+
+    println!("d:{}, h:{}, i:{}, u:{}, c:{}", d, h, i, u, c);
 }
