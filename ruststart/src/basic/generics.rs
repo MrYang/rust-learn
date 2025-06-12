@@ -40,3 +40,23 @@ pub fn area() {
     let p = Point { x: 1, y: 1.1 };
     println!("{:?}", p);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_add() {
+        assert_eq!(add(1, 2), 3);
+    }
+
+    #[test]
+    fn test_largest() {
+        assert_eq!(largest(1, 2), 2);
+    }
+
+    #[test]
+    fn test_area() {
+        assert_eq!(area(), ());
+    }
+}

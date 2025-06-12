@@ -37,5 +37,21 @@ pub fn loop_control() {
         if n > 10 {
             break;
         }
+        n = n + 1;
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_if_control() {
+        if_control();
+    }
+
+    #[test]
+    fn test_loop_control() {
+        loop_control();
     }
 }

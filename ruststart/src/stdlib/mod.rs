@@ -1,8 +1,4 @@
-mod cli;
+pub mod cli;
+mod files;
+mod strings;
 mod threads;
-
-pub fn s() {
-
-    cli::c();
-    threads::listen_tcp();
-}

@@ -1,4 +1,3 @@
-use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
@@ -32,5 +31,14 @@ pub fn g() {
                 break;
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_guess() {
+        g();
     }
 }

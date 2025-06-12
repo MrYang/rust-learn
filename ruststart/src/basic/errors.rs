@@ -26,3 +26,19 @@ fn read_file() -> Result<String, io::Error> {
     File::open("hello.txt")?.read_to_string(&mut s)?;
     Ok(s)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_error_handler1() {
+        error_handler1();
+    }
+
+    #[test]
+    fn test_read_file() {
+        let s = read_file();
+        println!("{:#?}", s);
+    }
+}

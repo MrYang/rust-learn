@@ -1,25 +1,13 @@
 
 #![allow(dead_code)]
-#![allow(unused_imports)]
-
-use std::cmp::Ordering;
-use std::{io, thread};
-use std::time::Duration;
-
-mod guess;
-mod basic;
-
-mod scoping;
-mod stdlib;
 
 use rustcarte;
 
+mod basic;
+mod stdlib;
+mod scoping;
+mod guess;
 
-fn main() {
-    //guess::g();
-    basic::pub_method();
-    scoping::s();
-    stdlib::s();
-
+ fn main() {
     println!("rustcarte:{}", rustcarte::add(3, 4));
 }

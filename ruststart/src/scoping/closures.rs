@@ -11,7 +11,7 @@ pub fn c() {
 
     let c = |x| x;
     let c = c("x");
-    println!("c:{}", c);
+    println!("c:{}, a1:{}, a2:{}, a3:{}, a4:{}", c, add_one_v1(1), add_one_v2(1), add_one_v3(1), add_one_v4(1));
 
     let mut cacher = Cacher::new(|num| {
         println!("calc value");
@@ -45,5 +45,15 @@ impl<T, U> Cacher<T, U> where T: Fn(U) -> U, U: Copy {
                 v
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_c() {
+        c();
     }
 }

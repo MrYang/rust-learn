@@ -1,5 +1,3 @@
-use std::hash::Hash;
-
 pub fn vecs() {
     let mut v: Vec<i32> = Vec::new();
     v.push(1);
@@ -44,4 +42,19 @@ pub fn map() {
     let team_map: HashMap<_, _> = team_list.into_iter().collect();
 
     println!("{:?}", team_map);
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn test_vecs() {
+        vecs();
+    }
+
+    #[test]
+    fn test_map() {
+        map();
+    }
 }

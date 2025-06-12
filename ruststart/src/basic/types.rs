@@ -169,3 +169,44 @@ pub fn convert() {
 
     println!("d:{}, h:{}, i:{}, u:{}, c:{}", d, h, i, u, c);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_basic_types() {
+        basic_types();
+    }
+
+    #[test]
+    fn test_tuple_types() {
+        tuple_types();
+    }
+
+    #[test]
+    fn test_array_types() {
+        array_types();
+    }
+
+    #[test]
+    fn test_str_types() {
+        str_types();
+    }
+
+    #[test]
+    fn test_enum_types() {
+        enum_types();
+    }
+
+    #[test]
+    fn test_struct_types() {
+        struct_types();
+    }
+
+    #[test]
+    fn test_convert() {
+        convert();
+    }
+    
+}

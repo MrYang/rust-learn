@@ -78,3 +78,13 @@ pub fn traits() {
     let s = return_summary();
     println!("s.summarize:{}", s.summary_default());
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_traits() {
+        traits();
+    }
+}
