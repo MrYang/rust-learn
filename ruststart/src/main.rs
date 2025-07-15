@@ -1,13 +1,12 @@
-
 #![allow(dead_code)]
 
 use rustcarte;
 
 mod basic;
-mod stdlib;
-mod scoping;
 mod guess;
+mod scoping;
+mod stdlib;
 
- fn main() {
+fn main() {
     println!("rustcarte:{}", rustcarte::add(3, 4));
 }

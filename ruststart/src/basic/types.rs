@@ -128,7 +128,11 @@ struct User {
 use std::fmt;
 impl fmt::Display for User {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "username:{}, email:{}, active:{}", self.username, self.email, self.active)
+        write!(
+            f,
+            "username:{}, email:{}, active:{}",
+            self.username, self.email, self.active
+        )
     }
 }
 
@@ -208,5 +212,4 @@ mod tests {
     fn test_convert() {
         convert();
     }
-    
 }

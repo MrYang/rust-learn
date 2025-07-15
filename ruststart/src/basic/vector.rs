@@ -26,7 +26,7 @@ pub fn map() {
     gem_map.insert("蓝宝石", 2);
     println!("{:?}", gem_map);
 
-    let num :Option<&i32> = gem_map.get("红宝石");
+    let num: Option<&i32> = gem_map.get("红宝石");
     println!("{:?}", num);
 
     for (key, value) in gem_map {

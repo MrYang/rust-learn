@@ -6,12 +6,19 @@ pub fn c() {
         x + 1
     }
     let add_one_v2 = |x: u32| -> u32 { x + 1 };
-    let add_one_v3 = |x: u32| { x + 1 };
+    let add_one_v3 = |x: u32| x + 1;
     let add_one_v4: fn(u32) -> u32 = |x: u32| x + 1;
 
     let c = |x| x;
     let c = c("x");
-    println!("c:{}, a1:{}, a2:{}, a3:{}, a4:{}", c, add_one_v1(1), add_one_v2(1), add_one_v3(1), add_one_v4(1));
+    println!(
+        "c:{}, a1:{}, a2:{}, a3:{}, a4:{}",
+        c,
+        add_one_v1(1),
+        add_one_v2(1),
+        add_one_v3(1),
+        add_one_v4(1)
+    );
 
     let mut cacher = Cacher::new(|num| {
         println!("calc value");
@@ -23,17 +30,21 @@ pub fn c() {
     println!("v1:{}, v2:{}", v1, v2);
 }
 
-struct Cacher<T, U> where T: Fn(U) -> U {
+struct Cacher<T, U>
+where
+    T: Fn(U) -> U,
+{
     calc: T,
     value: Option<U>,
 }
 
-impl<T, U> Cacher<T, U> where T: Fn(U) -> U, U: Copy {
+impl<T, U> Cacher<T, U>
+where
+    T: Fn(U) -> U,
+    U: Copy,
+{
     fn new(calc: T) -> Cacher<T, U> {
-        Cacher {
-            calc,
-            value: None,
-        }
+        Cacher { calc, value: None }
     }
 
     fn value(&mut self, arg: U) -> U {

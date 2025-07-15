@@ -46,7 +46,11 @@ fn tr2<T: Summary>(args: &T) {
 }
 
 fn tr3<T: Summary + Display>(args: &T) {
-    println!("multi trait, summary:{},display:{}", args.summary_default(), args.display())
+    println!(
+        "multi trait, summary:{},display:{}",
+        args.summary_default(),
+        args.display()
+    )
 }
 
 fn return_summary() -> impl Summary {
@@ -67,7 +71,12 @@ pub fn traits() {
         content: String::from("content"),
     };
 
-    println!("a.summarize:{}, a.summary:{}, a.display:{}", a.summarize(), a.summary_default(), a.display());
+    println!(
+        "a.summarize:{}, a.summary:{}, a.display:{}",
+        a.summarize(),
+        a.summary_default(),
+        a.display()
+    );
     tr(&mut a);
     tr(&mut t);
 
